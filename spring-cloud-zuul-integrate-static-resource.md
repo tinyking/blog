@@ -20,7 +20,9 @@ zuul:
   sensitive-headers:
   ignored-services: '*'
   routes:
-    rms-common: /rms-common/**
-    rms-manage: /rms-manage/**
+    a: /a/**
+    b: /b/**
 ```
+
+
 
