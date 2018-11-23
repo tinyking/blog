@@ -1,0 +1,26 @@
+项目中需要将前端的静态资源打包集成到zuul中，直接将静态资源放到zuul项目的/src/main/resources/static下，通过浏览器访问，发现无法访问。原因是zuul对所有的请求都进行了路由转发。
+
+一开始的配置如下：
+
+```
+zuul:
+  servlet-path: /
+  sensitive-headers:
+```
+
+在这种配置下，zuul对于后台其他restful服务进行的自动转发：
+
+如eureka中注册了a服务，当访问`/a/service`时，zuul自动将该请求转发到a服务上。
+
+通过修改配置，实现了静态资源的集成，配置如下：
+
+```
+zuul:
+#  servlet-path: /
+  sensitive-headers:
+  ignored-services: '*'
+  routes:
+    rms-common: /rms-common/**
+    rms-manage: /rms-manage/**
+```
+
