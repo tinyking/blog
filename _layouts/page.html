@@ -1,6 +1,9 @@
 ---
-layout: layout
+layout: default
 ---
+{% include jumbotron.html %}
+<article class="post container">
 
-{% assign __ = site.data.languages[site.language] %}
-{% include page.html %}
+    {{ content }}
+
+</article>
