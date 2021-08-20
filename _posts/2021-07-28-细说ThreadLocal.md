@@ -5,6 +5,7 @@ tags:
     - JDK
 categories:
     - 后端
+author: tinyking
 ---
 
 ## 1. ThreadLocal是什么
